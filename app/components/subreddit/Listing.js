@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import ListItem from './ListItem';
+import Form from "./Form";
 
 export default class Listing extends Component {
 	constructor() {
 		super();
 
 		this.state = {
-			posts: []
+			posts: [],
+            subredditId: "",
+            postTitle: "",
+            postContent: "",
+            comments: ""
+
 		}
 	}
 
@@ -25,12 +31,22 @@ export default class Listing extends Component {
 			});
 		}
 	}
-
+	setTerms(data) {
+		var subredditId = data.subredditId;
+		var title = data.title;
+		var content = data.content;
+		var comments = data.comments;
+		console.log(`setTerms is working, data: ${subredditId}, ${title}, ${content}, ${comments}`);
+		axios.post('/posts/by-subreddit/' + data.subredditId, data);		
+	}
 	render() {
 		return (
+		  <div>	
+			<Form setTerms={this.setTerms}/>
 			<ul>
 				{this.state.posts.map(post => <ListItem key={post._id} post={post} />)}
 			</ul>
+		  </div>
 		);
 	}
 }
