@@ -29,7 +29,7 @@ render() {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <div className="panel panel-default">
+              <div className="panel panel-primary">
                 <div className="panel-heading">
                   <h3 className="text-center">Make a new post!!</h3>
                 </div>
