@@ -14,8 +14,16 @@ router.get('/by-subreddit/:subreddit', (req, res) => {
 	});
 });
 
+router.get('/categories', (req, res) => {
+	{/*return only the unique subredditId's*/}
+	Post.find({}).distinct("subredditId").exec( (error, doc) => {
+		console.log(`doc: ${doc}`);
+		res.json(doc);
+	});
+});
+
 router.post('/by-subreddit/:subreddit', (req, res) => {
-	console.log(`post route is working, req.body: ${req.body}`);
+	console.log("post route is working, req.body: " + JSON.stringify(req.body));
 	let subredditId = req.params.subreddit.toLowerCase();
 	subredditId = subredditId.replace(/ /g, '');
 	console.log(`subredditID: ${subredditId}`);

@@ -7,12 +7,10 @@ const Post = new mongoose.Schema({
     	type: String,
 		trim: true,
 		required: true,
-		unique: true
 	},
 	title: {
 		type: String,
 		trim: true,
-		required: true,
 		unique: true
 	}
 });
