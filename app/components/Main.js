@@ -7,13 +7,28 @@ export default class Main extends Component {
 		this.state = {
 			categories: []
 		};
+		this.componentDidMount = this.componentDidMount.bind(this);
+		this.renderResults = this.renderResults.bind(this);
 	}
-	handleClick() {
-		axios.get('/categories').then( results => {
-			var temp = results.data;
-			console.log(`return data: ${temp}`);
-			this.setState({categories: results});
-		});
+	componentDidMount() {
+			axios.get('/posts/categories').then( results => {
+			console.log(`return results.data: ${results.data}`);
+			this.setState({categories: results.data});
+	  });
+	}
+	renderResults() {
+		if (this.state.categories === []) {
+			return
+		}
+		else {
+			console.log("renderResults is working");
+			return this.state.categories.map( 
+					(category) => (						
+					<div key={category}>	
+            <a href={`/#/listing/${category}`}>{category}</a>
+					</div>
+			));
+		}
 	}
 	render() {
 		console.log("main....");
@@ -22,16 +37,17 @@ export default class Main extends Component {
 	      <div className="jumbotron">
 	        <h2><strong>Reddit!</strong></h2>
  			    <a href="/#/add">Add New Category</a>
-					<a href="/posts/categories">
-					<button 
-					className="btn btn-success"
-					onClick={this.handleClick}>Categories</button></a>
 	      </div>
 
 	      <div className="row">
 	        {/* This code will dump the correct Child Component */}
 	        {this.props.children}
+					
 	      </div>
+
+				<div>
+					{this.renderResults()}
+				</div>
 	    </div>
 		);
 	}

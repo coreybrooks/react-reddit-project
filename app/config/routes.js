@@ -9,7 +9,7 @@ module.exports = (
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
       <Route path="add" component={CategoryForm} />
-			<Route path="/listing/:subredditId" component={Listing} />
+			<Route path="listing/:subredditId" component={Listing} />
 			{/*<IndexRoute component={Main} />*/}
     </Route>
   </Router>
