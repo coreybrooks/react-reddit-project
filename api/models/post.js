@@ -1,18 +1,14 @@
 const mongoose = require('mongoose');
 
 const Post = new mongoose.Schema({
-	comments: Array,
-	content: String,
 	subredditId: {
     	type: String,
-		trim: true,
-		required: true,
+		trim: true
 	},
-	title: {
-		type: String,
-		trim: true,
-		unique: true
-	}
+	title: String,
+    comments: Array,
+	content: String
+
 });
 
 module.exports = mongoose.model('post', Post);

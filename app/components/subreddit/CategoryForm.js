@@ -7,6 +7,7 @@ export default class CategoryForm extends Component {
 
         this.state = {
             subredditId: "",
+            title: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,8 +20,9 @@ handleChange(event){
 handleSubmit(event){
   console.log("handleSubmit is working");
   event.preventDefault();
-  axios.post(`/posts/by-subreddit/${this.state.subredditId}`, this.state);
-  this.setState({subredditId: ""});
+  var data= this.state;
+  axios.post(`/posts/by-subreddit/${this.state.subredditId}`, data);
+  this.setState({subredditId: "", title: ""});
 }
 render() {
     return (
@@ -42,6 +44,15 @@ render() {
                          id="subredditId"
                          onChange={this.handleChange}
                          />
+
+                         <h4>Fist Title (required)</h4>    
+                         <input
+                         type="string" 
+                         value={this.state.title}
+                         className="form-control"
+                         id="title"
+                         onChange={this.handleChange}
+                         />  
 
                         <button 
                         className="btn btn-success"

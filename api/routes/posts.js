@@ -28,14 +28,14 @@ router.post('/by-subreddit/:subreddit', (req, res) => {
 	subredditId = subredditId.replace(/ /g, '');
 	console.log(`subredditID: ${subredditId}`);
 
-	var post = new Post(req.body);
+	var newPost = new Post(req.body);
 
-	post.save(function(error, doc) {
+	newPost.save(function(error, doc) {
 		if (error) {
 			res.send(error);
 		}
 		else {
-			res.send(doc);
+			res.json(doc);
 		}
 	});
 });

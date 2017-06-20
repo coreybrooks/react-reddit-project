@@ -53,7 +53,6 @@ render() {
                          className="form-control"
                          id="title"
                          onChange={this.handleChange}
-                         required
                          />
 
                         <h4>Content</h4>    
@@ -63,7 +62,6 @@ render() {
                          className="form-control"
                          id="content"
                          onChange={this.handleChange}
-                         required
                          />
 
                         <h4>Comments</h4>    
