@@ -22,6 +22,7 @@ handleSubmit(event){
   event.preventDefault();
   var data= this.state;
   axios.post(`/posts/by-subreddit/${this.state.subredditId}`, data);
+  window.location.replace(`/#/listing/${this.state.subredditId}`);
   this.setState({subredditId: "", title: ""});
 }
 render() {

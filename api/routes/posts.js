@@ -27,7 +27,7 @@ router.post('/by-subreddit/:subreddit', (req, res) => {
 			res.send(error);
 		}
 		else {
-			res.json(doc);
+			console.log(doc);			
 		}
 	});
 });
@@ -36,8 +36,13 @@ router.post('/by-subreddit/:subreddit', (req, res) => {
 router.get('/categories', (req, res) => {
 	{/*return only the unique subredditId's*/}
 	Post.find({}).distinct("subredditId").exec( (error, doc) => {
+		if (error) {
+			console.log(error);
+		}
+		else {
 		console.log(`doc: ${doc}`);
 		res.json(doc);
+		}
 	});
 });
 
