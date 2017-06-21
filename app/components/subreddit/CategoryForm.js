@@ -45,15 +45,6 @@ render() {
                          onChange={this.handleChange}
                          />
 
-                         <h4>Fist Title (required)</h4>    
-                         <input
-                         type="string" 
-                         value={this.state.title}
-                         className="form-control"
-                         id="title"
-                         onChange={this.handleChange}
-                         />  
-
                         <button 
                         className="btn btn-success"
                         id="submitButton"

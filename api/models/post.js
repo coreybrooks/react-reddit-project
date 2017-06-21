@@ -5,9 +5,15 @@ const Post = new mongoose.Schema({
     	type: String,
 		trim: true
 	},
-	title: String,
-    comments: Array,
-	content: String
+	title: {
+        type: String,
+	},
+	comments: {
+		type: String,
+	},
+	content: {
+		type: String,
+	}
 
 });
 

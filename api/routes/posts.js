@@ -14,14 +14,6 @@ router.get('/by-subreddit/:subreddit', (req, res) => {
 	});
 });
 
-router.get('/categories', (req, res) => {
-	{/*return only the unique subredditId's*/}
-	Post.find({}).distinct("subredditId").exec( (error, doc) => {
-		console.log(`doc: ${doc}`);
-		res.json(doc);
-	});
-});
-
 router.post('/by-subreddit/:subreddit', (req, res) => {
 	console.log("post route is working, req.body: " + JSON.stringify(req.body));
 	let subredditId = req.params.subreddit.toLowerCase();
@@ -39,4 +31,28 @@ router.post('/by-subreddit/:subreddit', (req, res) => {
 		}
 	});
 });
+
+
+router.get('/categories', (req, res) => {
+	{/*return only the unique subredditId's*/}
+	Post.find({}).distinct("subredditId").exec( (error, doc) => {
+		console.log(`doc: ${doc}`);
+		res.json(doc);
+	});
+});
+
+router.get('/comments/:subreddit/:title', (req, res) => {
+	console.log("posts/comments/:subreddit/:title get route is working");
+	let subredditId = req.params.subreddit.toLowerCase();
+	subredditId = subredditId.replace(/ /g, '');
+	let title = req.params.title;
+
+	Post.find({
+		title: title
+	}, (err, results) => {
+		res.json(results);
+	});
+});
+
+
 module.exports = router;

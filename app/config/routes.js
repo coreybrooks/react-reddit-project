@@ -5,13 +5,15 @@ import Main from '../components/Main';
 import Listing from '../components/subreddit/Listing';
 import CategoryForm from '../components/subreddit/CategoryForm';
 import Form from '../components/subreddit/Form';
+import Comments from '../components/subreddit/Comments'
 
 module.exports = (
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
       <Route path="add" component={CategoryForm} />
 			<Route path="listing/:subredditId" component={Listing} />
-			{/*<IndexRoute component={Main} />*/}
+      <Route path="comments/:subredditId/:title" component={Comments} />
+		 {/*}	<IndexRoute component={Main} />  */}
     </Route>
   </Router>
 );
