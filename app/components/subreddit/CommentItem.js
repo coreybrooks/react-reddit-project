@@ -6,13 +6,35 @@ export default class ListItem extends Component {
 
 		this.state = {
 			title: "",
-            comments: ""
+            comments: "",
+			name: "",
+			date: "",
+			commentsDiv: ""
 		};
+
+        this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
+		this.makeCommentsDiv = this.makeCommentsDiv.bind(this);
+
 	}
-	componentDidMount() {
-        console.log(`CommentItem component mounted, this.props.post.comment: ${JSON.stringify(this.props.post.comments)}`);
+	makeCommentsDiv(data) {
+		this.setState({commentsDiv: data});	
+	}
+
+	componentWillReceiveProps() {
 		this.setState({title: this.props.post.title});
         this.setState({comments: this.props.post.comments});
+		this.setState({name: this.props.post.name});
+		this.setState({date: this.props.post.date});
+
+		{/*below sets up makeCommentsDiv to return the collection only if it includes a comment*/}
+		var commentDiv = <div>
+			               <p>{this.state.comments}</p>
+   				           <p> -- {this.state.name}: {this.state.date.substring(0,10)}</p>
+						   <p>-=-=-=-=-=-=-=-=-=-=-=</p>
+						</div>;
+
+	 	{this.props.post.comments ? this.makeCommentsDiv(commentDiv) : {}};							
+
 	}
 
 	render() {
@@ -20,10 +42,7 @@ export default class ListItem extends Component {
 		console.log(`reference within title: ${this.state.reference}`)
 		return (
             <div>
-
-                <li>
-                    <p>{this.state.comments}</p>
-                </li>
+					{this.state.commentsDiv}
             </div>
 		);
 	}

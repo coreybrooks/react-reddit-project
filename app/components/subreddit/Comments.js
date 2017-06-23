@@ -14,14 +14,11 @@ export default class Listing extends Component {
             postTitle: "",
             postContent: "",
             comments: ""
-
 		}
 	}
 
 	componentDidMount() {
-   		console.log("Comments component mounted, this.props.params " + JSON.stringify(this.props.params));
 		axios.get('/posts/comments/' + this.props.params.subredditId + "/" + this.props.params.title).then(posts => {
-			console.log(`Comment component posts.data: ${JSON.stringify(posts.data)}`);
 
             this.setState({ posts: posts.data });
             this.setState({ postTitle: posts.data[0].title});
@@ -41,12 +38,12 @@ export default class Listing extends Component {
 		var title = data.title;
 		var content = data.content;
 		var comments = data.comments;
-		console.log(`setTerms is working, data: ${subredditId}, ${title}, ${content}, ${comments}`);
+		var name = data.name;
+		console.log(`setTerms is working, data: ${subredditId}, ${title}, ${content}, ${comments}, ${name}`);
 		axios.post('/posts/by-subreddit/' + data.subredditId, data);		
 	}
 	render() {
 		return (
-		  <body>	
 			<div className="container">	
 				<CommentForm 
 				setTerms={this.setTerms} 
@@ -62,7 +59,6 @@ export default class Listing extends Component {
 					{this.state.posts.map(post => <CommentItem key={post._id} post={post} />)}
 				</ul>
 			</div>
-		  </body>
 		);
 	}
 }

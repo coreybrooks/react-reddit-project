@@ -10,20 +10,17 @@ export default class ListItem extends Component {
 		};
 	}
 	componentDidMount() {
-		console.log("component mounted");
 		var temp = `/#/comments/${this.props.post.subredditId}/${this.props.post.title}`;
      	this.setState({reference: temp});
 		this.setState({title: this.props.post.title});
 	}
 
 	render() {
-		console.log(`title within render: ${this.state.title}`);
-		console.log(`reference within title: ${this.state.reference}`)
 		return (
-			<li>
-				<h2><a href={this.state.reference}>{this.props.post.title}</a></h2>
+			<div>
+				<h4><a href={this.state.reference}>{this.props.post.title}</a></h4>
 				<p>{this.props.post.content}</p>
-			</li>
+			</div>
 		);
 	}
 }

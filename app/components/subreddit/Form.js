@@ -13,7 +13,6 @@ export default class Form extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
   }
 componentDidMount() {
-  console.log("form this.props.params " + JSON.stringify(this.props.subredditId));
   this.setState({subredditId: this.props.subredditId});
 }
 handleChange(event){
@@ -25,12 +24,12 @@ handleSubmit(event){
   console.log("handleSubmit is working");
   event.preventDefault();
   this.props.setTerms(this.state);
-  this.setState({subredditId: "", title: "", content: "", comments: ""});
+  this.setState({subredditId: "", title: "", content: ""});
+  location.reload();
 }
 render() {
     return (
-        <div className="container">
-          <a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <div className="">
           <div className="row">
             <div className="col-md-12">
               <div className="panel panel-primary">
@@ -40,7 +39,7 @@ render() {
                 <div className="panel-body">
                     <form onSubmit={this.handleSubmit}>
                       <div className="form-group">
-                        <h2 className="text-center">Subreddit Category: {this.state.subredditId}</h2>
+                        <h4 className="text-center">Subreddit Category: {this.state.subredditId}</h4>
                          <h4>Title</h4>    
                         <input
                          type="string" 
@@ -60,7 +59,7 @@ render() {
                          />
 
                         <button 
-                        className="btn btn-success"
+                        className="btn"
                         id="submitButton"
                         type="submit"
                         >SUBMIT</button>

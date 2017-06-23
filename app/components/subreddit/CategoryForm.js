@@ -27,9 +27,9 @@ handleSubmit(event){
 }
 render() {
     return (
-        <div className="container">
+        <div className="">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-12">
               <div className="panel panel-primary">
                 <div className="panel-heading">
                   <h3 className="text-center">Make a New Category!!</h3>
@@ -47,7 +47,7 @@ render() {
                          />
 
                         <button 
-                        className="btn btn-success"
+                        className="btn"
                         id="submitButton"
                         type="submit"
                         >SUBMIT</button>

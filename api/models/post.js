@@ -6,13 +6,20 @@ const Post = new mongoose.Schema({
 		trim: true
 	},
 	title: {
-        type: String,
+        type: String
 	},
 	comments: {
-		type: String,
+		type: String
 	},
 	content: {
-		type: String,
+		type: String
+	},
+	name: {
+		type: String
+	},
+	date: {
+		type: Date,
+		default: Date.now
 	}
 
 });

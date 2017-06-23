@@ -8,14 +8,12 @@ export default class Form extends Component {
             subredditId: "",
             title: "",
             content: "",
-            comments: ""
+            comments: "",
+            name: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
   }
-componentDidMount() {
-  console.log("componentDidMount this.props.title " + JSON.stringify(this.props.title));
-}
 componentWillReceiveProps() {
   console.log(`this.props.title: ${this.props.title}`);
   this.setState({subredditId: this.props.subredditId});
@@ -31,14 +29,15 @@ handleSubmit(event){
   console.log("handleSubmit is working");
   event.preventDefault();
   this.props.setTerms(this.state);
-  this.setState({subredditId: "", title: "", content: "", comments: ""});
+  this.setState({subredditId: "", title: "", content: "", comments: "", name: ""});
+  location.reload();
 }
 render() {
     return (
         <div>
           <div className="row">
             <div className="col-md-12">
-              <a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+              <a href="/"><i className="fa fa-home" aria-hidden="true"></i> Home</a>
               <div className="panel panel-primary">
                 <div className="panel-heading">
                   <h3 className="text-center">Comment Section</h3>
@@ -57,9 +56,17 @@ render() {
                          rows="3"
                          onChange={this.handleChange}
                          />
+                        <h5>Name</h5>    
+                        <input
+                         type="string" 
+                         value={this.state.name}
+                         className="form-control"
+                         id="name"
+                         onChange={this.handleChange}
+                         />
 
                         <button 
-                        className="btn btn-success"
+                        className="btn"
                         id="submitButton"
                         type="submit"
                         >SUBMIT</button>

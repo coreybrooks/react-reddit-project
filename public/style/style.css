@@ -18,5 +18,11 @@ body {
     margin: 10px;
 }
 .btn {
-    margin-top: 10px;
+    margin-top: 15px;
+    width: 150px;
+    background-color: #29FFDB;
+    color: white; 
+}
+#name {
+    width: 250px
 }
