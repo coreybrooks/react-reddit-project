@@ -4,8 +4,8 @@ const router = express.Router();
 const Post = require('../models/post');
 
 router.get('/by-subreddit/:subreddit', (req, res) => {
-	let subredditId = req.params.subreddit.toLowerCase();
-	subredditId = subredditId.replace(/ /g, '');
+	let subredditId = req.params.subreddit;
+	{/* not sure if I need this yet:  subredditId = subredditId.replace(/ /g, '');*/}
 
 	Post.find({
 		subredditId: subredditId

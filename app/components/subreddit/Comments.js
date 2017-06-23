@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import CommentItem from './CommentItem';
-import Form from "./Form";
+import CommentForm from "./CommentForm";
 
 export default class Listing extends Component {
 	constructor() {
@@ -19,9 +19,9 @@ export default class Listing extends Component {
 	}
 
 	componentDidMount() {
-   		console.log("Comments component mounted");
+   		console.log("Comments component mounted, this.props.params " + JSON.stringify(this.props.params));
 		axios.get('/posts/comments/' + this.props.params.subredditId + "/" + this.props.params.title).then(posts => {
-			console.log(`Comment component posts: ${JSON.stringify(posts.data)}`);
+			console.log(`Comment component posts.data: ${JSON.stringify(posts.data)}`);
 
             this.setState({ posts: posts.data });
             this.setState({ postTitle: posts.data[0].title});
@@ -46,16 +46,23 @@ export default class Listing extends Component {
 	}
 	render() {
 		return (
-		  <div>	
-			  <Form setTerms={this.setTerms} />
-                <h6>{this.state.postContent}</h6>
-                <h3>{this.state.postTitle}</h3>
-                <h5>Comments</h5>
+		  <body>	
+			<div className="container">	
+				<CommentForm 
+				setTerms={this.setTerms} 
+				subredditId={this.props.params.subredditId}
+				title={this.state.postTitle}
+				content={this.state.postContent}
+				/>
 
-			<ul>
-				{this.state.posts.map(post => <CommentItem key={post._id} post={post} />)}
-			</ul>
-		  </div>
+					<h6>{this.state.postContent}</h6>
+					<h3>Comments</h3>
+
+				<ul>
+					{this.state.posts.map(post => <CommentItem key={post._id} post={post} />)}
+				</ul>
+			</div>
+		  </body>
 		);
 	}
 }

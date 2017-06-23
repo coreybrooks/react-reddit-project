@@ -33,7 +33,7 @@ export default class Main extends Component {
 	render() {
 		console.log("main....");
 		return (
-			<div className="container">
+		<div className="container">
 	      <div className="jumbotron">
 	        <h2><strong>Reddit!</strong></h2>
  			    <a href="/#/add">Add New Category</a>

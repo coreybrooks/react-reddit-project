@@ -1,0 +1,22 @@
+body {
+    padding: 10px;
+}
+
+.container {
+    padding: 10px;
+    border: 2px groove #29FFDB;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.commentTitle {
+   text-decoration: underline;
+}
+
+.panel {
+    margin: 10px;
+}
+.btn {
+    margin-top: 10px;
+}

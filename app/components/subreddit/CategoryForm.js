@@ -52,11 +52,7 @@ render() {
                         type="submit"
                         >SUBMIT</button>
                        </div>
-                      </form>   
-                        <a href="/"><button
-                        className="btn btn-danger"
-                        id="closeButton"
-                        >CLOSE</button></a>
+                      </form>                       
 
                  </div>
               </div>

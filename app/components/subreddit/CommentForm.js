@@ -8,13 +8,19 @@ export default class Form extends Component {
             subredditId: "",
             title: "",
             content: "",
+            comments: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
   }
 componentDidMount() {
-  console.log("form this.props.params " + JSON.stringify(this.props.subredditId));
+  console.log("componentDidMount this.props.title " + JSON.stringify(this.props.title));
+}
+componentWillReceiveProps() {
+  console.log(`this.props.title: ${this.props.title}`);
   this.setState({subredditId: this.props.subredditId});
+  this.setState({title: this.props.title});
+
 }
 handleChange(event){
     var newState = {};
@@ -29,33 +35,26 @@ handleSubmit(event){
 }
 render() {
     return (
-        <div className="container">
-          <a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <div>
           <div className="row">
             <div className="col-md-12">
+              <a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
               <div className="panel panel-primary">
                 <div className="panel-heading">
-                  <h3 className="text-center">Make a new post!!</h3>
+                  <h3 className="text-center">Comment Section</h3>
                 </div>
                 <div className="panel-body">
                     <form onSubmit={this.handleSubmit}>
-                      <div className="form-group">
-                        <h2 className="text-center">Subreddit Category: {this.state.subredditId}</h2>
-                         <h4>Title</h4>    
+                      <div className="form-group">                          
+                        <h4 className="text-center">Subreddit Category: {this.state.subredditId}</h4>
+                        <h3 className="commentTitle">{this.props.title}</h3>    
+                        <h5>New Comments</h5>    
                         <input
                          type="string" 
-                         value={this.state.title}
+                         value={this.state.comments}
                          className="form-control"
-                         id="title"
-                         onChange={this.handleChange}
-                         />
-
-                        <h4>Content</h4>    
-                        <input
-                         type="string" 
-                         value={this.state.content}
-                         className="form-control"
-                         id="content"
+                         id="comments"
+                         rows="3"
                          onChange={this.handleChange}
                          />
 
@@ -67,7 +66,7 @@ render() {
                        </div>
                       </form>   
                  </div>
-              </div>
+              </div>              
             </div>  
           </div>
         </div>
