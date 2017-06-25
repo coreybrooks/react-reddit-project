@@ -9,8 +9,13 @@ router.get('/by-subreddit/:subreddit', (req, res) => {
 
 	Post.find({
 		subredditId: subredditId
-	}, (err, results) => {
+	}).exec((err, results) => {
+		if (err) {
+			console.log(err);
+		}
+		else {
 		res.json(results);
+		}
 	});
 });
 

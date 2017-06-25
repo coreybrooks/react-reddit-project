@@ -30,7 +30,7 @@ render() {
         <div className="">
           <div className="row">
             <div className="col-md-12">
-              <div className="panel panel-primary">
+              <div className="panel">
                 <div className="panel-heading">
                   <h3 className="text-center">Make a New Category!!</h3>
                 </div>

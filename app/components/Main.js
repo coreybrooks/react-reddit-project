@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from '../components/subreddit/Header';
+import Footer from '../components/subreddit/Footer';
 
 export default class Main extends Component {
 	constructor() {
@@ -33,23 +35,32 @@ export default class Main extends Component {
 	render() {
 		console.log("main....");
 		return (
-		<div className="container">
-	      <div className="jumbotron">
-	        <h2><strong>Reddit!</strong></h2>
-			    <a href="/"><i className="fa fa-home" aria-hidden="true"></i> Home</a>
-				<span> | </span>
- 			    <a href="/#/add">Add New Category</a>
-	      </div>
-	      <div className="row">
-	        {/* This code will dump the correct Child Component */}
-	        {this.props.children}
-					
-	      </div>
-		  <h4>Categories</h4>
-			<div>
-				{this.renderResults()}
-			</div>
-	    </div>
+		<div>	
+			<div className="mainContainer">
+				<Header />
+					<div className="outerContainer">
+						<div className="middleContainer">
+							<div className="container">
+									<div className="jumbotron">
+										<h2><strong>Reddit!</strong></h2>
+									</div>
+									<div className="row">
+										{/* This code will dump the correct Child Component */}
+										{this.props.children}
+										
+									</div>
+								  <h4>Categories</h4>
+								  <div>
+									  {this.renderResults()}
+								  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+			    <Footer />
+				</div>	
+		</div>
 		);
 	}
 }

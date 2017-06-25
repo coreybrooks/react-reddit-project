@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 
-export default class Form extends Component {
+export default class CommentForm extends Component {
     constructor() {
         super();
 
@@ -37,16 +37,15 @@ render() {
         <div>
           <div className="row">
             <div className="col-md-12">
-              <a href="/"><i className="fa fa-home" aria-hidden="true"></i> Home</a>
-              <div className="panel panel-primary">
+              <h4 className="text-center">Subreddit Category: {this.state.subredditId}</h4>
+              <h3>{this.props.title}</h3>    
+              <div className="panel commentPanel">
                 <div className="panel-heading">
                   <h3 className="text-center">Comment Section</h3>
                 </div>
                 <div className="panel-body">
                     <form onSubmit={this.handleSubmit}>
                       <div className="form-group">                          
-                        <h4 className="text-center">Subreddit Category: {this.state.subredditId}</h4>
-                        <h3 className="commentTitle">{this.props.title}</h3>    
                         <h5>New Comments</h5>    
                         <input
                          type="string" 

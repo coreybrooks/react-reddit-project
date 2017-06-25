@@ -12,7 +12,6 @@ module.exports = (
     <Route path="/" component={Main}>
       <Route path="add" component={CategoryForm} />
 			<Route path="listing/:subredditId" component={Listing} />
-		 {/*}	<IndexRoute component={Main} />  */}
     </Route>
     <Route path="comments/:subredditId/:title" component={Comments} />
 

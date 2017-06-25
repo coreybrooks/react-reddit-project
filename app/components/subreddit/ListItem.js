@@ -16,11 +16,16 @@ export default class ListItem extends Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<h4><a href={this.state.reference}>{this.props.post.title}</a></h4>
-				<p>{this.props.post.content}</p>
-			</div>
-		);
+		if (this.props.post.content) {
+			return (
+				<div>
+					<h4><a href={this.state.reference}>{this.props.post.title}</a></h4>
+					<p>{this.props.post.content}</p>
+				</div>
+			);
+	    }
+		else {
+			return <div></div>
+		}
 	}
 }

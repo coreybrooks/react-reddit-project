@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CommentItem from './CommentItem';
 import CommentForm from "./CommentForm";
+import Header from "./Header";
+import Footer from "./Footer";
 
-export default class Listing extends Component {
+export default class Comments extends Component {
 	constructor() {
 		super();
 
@@ -44,20 +46,27 @@ export default class Listing extends Component {
 	}
 	render() {
 		return (
-			<div className="container">	
-				<CommentForm 
-				setTerms={this.setTerms} 
-				subredditId={this.props.params.subredditId}
-				title={this.state.postTitle}
-				content={this.state.postContent}
-				/>
-
-					<h6>{this.state.postContent}</h6>
-					<h3>Comments</h3>
-
-				<ul>
-					{this.state.posts.map(post => <CommentItem key={post._id} post={post} />)}
-				</ul>
+			<div>
+			<Header />
+			<div className="outerContainer">
+			  <div className="middleContainer">
+				<div className="container">	
+					<CommentForm 
+					setTerms={this.setTerms} 
+					subredditId={this.props.params.subredditId}
+					title={this.state.postTitle}
+					content={this.state.postContent}
+					/>
+						<h6>{this.state.postContent}</h6>
+                        <hr/>
+						<h4>Comments:</h4>
+					<ul>
+						{this.state.posts.map(post => <CommentItem key={post._id} post={post} />)}
+					</ul>
+				</div>
+			  </div>
+			</div>
+			<Footer />
 			</div>
 		);
 	}
