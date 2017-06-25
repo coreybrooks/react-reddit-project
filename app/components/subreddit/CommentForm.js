@@ -15,7 +15,6 @@ export default class CommentForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
   }
 componentWillReceiveProps() {
-  console.log(`this.props.title: ${this.props.title}`);
   this.setState({subredditId: this.props.subredditId});
   this.setState({title: this.props.title});
 
