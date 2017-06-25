@@ -38,8 +38,6 @@ export default class CommentItem extends Component {
 	}
 
 	render() {
-		console.log(`title within render: ${this.state.title}`);
-		console.log(`reference within title: ${this.state.reference}`)
 		return (
             <div>
 					{this.state.commentsDiv}

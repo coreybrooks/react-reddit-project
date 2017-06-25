@@ -14,7 +14,6 @@ export default class Main extends Component {
 	}
 	componentDidMount() {
 			axios.get('/posts/categories').then( results => {
-			console.log(`return results.data: ${results.data}`);
 			this.setState({categories: results.data});
 	  });
 	}
@@ -23,7 +22,6 @@ export default class Main extends Component {
 			return
 		}
 		else {
-			console.log("renderResults is working");
 			return this.state.categories.map( 
 					(category) => (						
 					<div key={category}>	

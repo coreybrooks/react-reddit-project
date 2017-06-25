@@ -36,7 +36,6 @@ export default class Listing extends Component {
 		var title = data.title;
 		var content = data.content;
 		var comments = data.comments;
-		console.log(`setTerms is working, data: ${subredditId}, ${title}, ${content}, ${comments}`);
 		axios.post('/posts/by-subreddit/' + data.subredditId, data);		
 	}
 	render() {
