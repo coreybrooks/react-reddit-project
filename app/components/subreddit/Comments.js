@@ -27,14 +27,6 @@ export default class Comments extends Component {
             this.setState({ postContent: posts.data[0].content});
 		});
 	}
-
-	/*componentWillReceiveProps(nextProps) {
-		if (this.props.params.subredditId !== nextProps.params.subredditId) {
-			axios.get('/posts/by-subreddit/' + nextProps.params.subredditId).then(posts => {
-				this.setState({ posts: posts.data });
-			});
-		}
-	}*/
 	setTerms(data) {
 		var subredditId = data.subredditId;
 		var title = data.title;
@@ -57,6 +49,7 @@ export default class Comments extends Component {
 					title={this.state.postTitle}
 					content={this.state.postContent}
 					/>
+						<h5 className="commentTitle">Post content</h5>
 						<h6>{this.state.postContent}</h6>
                         <hr/>
 						<h4>Comments:</h4>

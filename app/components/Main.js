@@ -42,7 +42,7 @@ export default class Main extends Component {
 						<div className="middleContainer">
 							<div className="container">
 									<div className="jumbotron">
-										<h2><strong>Reddit!</strong></h2>
+										<h2><strong>Reddit - React!</strong></h2>
 									</div>
 									<div className="row">
 										{/* This code will dump the correct Child Component */}

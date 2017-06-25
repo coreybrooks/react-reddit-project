@@ -37,8 +37,8 @@ render() {
         <div>
           <div className="row">
             <div className="col-md-12">
-              <h4 className="text-center">Subreddit Category: {this.state.subredditId}</h4>
-              <h3>{this.props.title}</h3>    
+              <h4 className="text-center commentTitle">Subreddit Category: {this.state.subredditId}</h4>
+              <h3>Post title: {this.props.title}</h3>    
               <div className="panel commentPanel">
                 <div className="panel-heading">
                   <h3 className="text-center">Comment Section</h3>
