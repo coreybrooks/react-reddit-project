@@ -42,7 +42,7 @@ export default class Listing extends Component {
 		return (
 		  <div className="container2">	
 			<Form setTerms={this.setTerms} subredditId={this.props.params.subredditId}/>
-			<h4>Click on a post title to leave a comment</h4>
+			<h4>Click on a post title to leave a comment</h4><hr/>
 			<ul>
 				{this.state.posts.map(post => <ListItem key={post._id} post={post} />)}
 			</ul>

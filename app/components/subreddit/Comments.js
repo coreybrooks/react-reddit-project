@@ -49,7 +49,7 @@ export default class Comments extends Component {
 					title={this.state.postTitle}
 					content={this.state.postContent}
 					/>
-						<h5 className="commentTitle">Post content</h5>
+						<h5 className="	">Post content:</h5>
 						<h6>{this.state.postContent}</h6>
                         <hr/>
 						<h4>Comments:</h4>
