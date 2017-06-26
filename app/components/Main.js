@@ -34,29 +34,26 @@ export default class Main extends Component {
 		return (
 		<div>	
 			<div className="mainContainer">
-				<Header />
-					<div className="outerContainer">
-						<div className="middleContainer">
-							<div className="container">
-									<div className="jumbotron">
-										<h2><strong>Reddit - React!</strong></h2>
-									</div>
-									<div className="row">
-										{/* This code will dump the correct Child Component */}
-										{this.props.children}
-										
-									</div>
-								  <h4>Categories</h4>
-								  <div>
-									  {this.renderResults()}
-								  </div>
-							</div>
-						</div>
+			  <Header />
+			    <div className="outerContainer">
+				  <div className="middleContainer">
+				    <div className="container">
+					  <div className="jumbotron">
+					    <h2><strong>Reddit - React!</strong></h2>
+					  </div>
+					  <div className="row">
+						{/* This code will dump the correct Child Component */}
+						{this.props.children}
+					  </div>
+					  <h4>Categories</h4>
+					  <div>
+					    {this.renderResults()}
+					  </div>
 					</div>
+				  </div>
 				</div>
-				<div>
-			    <Footer />
-				</div>	
+			</div>
+    	    <Footer />
 		</div>
 		);
 	}
