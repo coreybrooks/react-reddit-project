@@ -7,15 +7,15 @@ This is a Reddit style application that allows users to make posts about topics 
 
 #### Express Routes
 The following requests are routed with Express and Node.js:  
-*” /by-subreddit/:subreddit” GET route retrieves the saved documents from the posts collection in MongoDB using Mongoose.  The saved documents are returned to the Main component where they are dynamically rendered into the Listing component.
-*” /by-subreddit/:subreddit” route saves the new post into MongoDB.
-*” /categories” GET route returns only unique post titles to be rendered in the categories section on the main component
-*” comments/:subreddit/:title” GET route is called when the Comments component is mounted in order to retrieve the different titles for each categories.  The titles can then be selected where a user can leave comments.
+* ”/by-subreddit/:subreddit” GET route retrieves the saved documents from the posts collection in MongoDB using Mongoose.  The saved documents are returned to the Main component where they are dynamically rendered into the Listing component.
+* ”/by-subreddit/:subreddit” route saves the new post into MongoDB.
+* ”/categories” GET route returns only unique post titles to be rendered in the categories section on the main component
+* ”comments/:subreddit/:title” GET route is called when the Comments component is mounted in order to retrieve the different titles for each categories.  The titles can then be selected where a user can leave comments.
 
 #### React Routes
 The following paths are routed using the React router methodology:
 * “/add” renders the CategoryForm component as a child of the Main component to add new categories
-*” /listing/:subredditId” renders the Listing component as a child of the Main component.  The Listing component displays the current posts for the given category, and renders the Form component to add new posts to the category.
+* ”/listing/:subredditId” renders the Listing component as a child of the Main component.  The Listing component displays the current posts for the given category, and renders the Form component to add new posts to the category.
 
 
 ### Components 
