@@ -9,7 +9,7 @@ This is a Reddit style application that allows users to make posts about topics 
 The following requests are routed with Express and Node.js:  
 * ”/by-subreddit/:subreddit” GET route retrieves the saved documents from the posts collection in MongoDB using Mongoose.  The saved documents are returned to the Main component where they are dynamically rendered into the Listing component.
 * ”/by-subreddit/:subreddit” POST route saves the new post into MongoDB.
-* ”/categories” GET route returns only unique post titles to be rendered in the categories section on the Main component
+* ”/categories” GET route returns only unique post titles to be rendered in the categories section on the Main component.
 * ”comments/:subreddit/:title” GET route is called when the Comments component is mounted in order to retrieve and render the existing comments for each post.
 
 #### React Routes
