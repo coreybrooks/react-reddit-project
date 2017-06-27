@@ -14,6 +14,5 @@ module.exports = (
 			<Route path="listing/:subredditId" component={Listing} />
     </Route>
     <Route path="comments/:subredditId/:title" component={Comments} />
-
   </Router>
 );

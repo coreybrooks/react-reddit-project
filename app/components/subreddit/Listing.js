@@ -31,6 +31,7 @@ export default class Listing extends Component {
 			});
 		}
 	}
+	
 	setTerms(data) {
 		var subredditId = data.subredditId;
 		var title = data.title;
